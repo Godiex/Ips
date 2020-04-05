@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F5ED4228-7484-486F-8FC8-5B55C32A4860}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Ips</RootNamespace>
-    <AssemblyName>Ips</AssemblyName>
+    <ProjectGuid>{5150E6A3-7E48-407F-918A-5480D381FD49}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bll</RootNamespace>
+    <AssemblyName>Bll</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,18 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AplicacionDeConsola.cs" />
-    <Compile Include="MenuPaciente.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ServicioLiquidacionCuotaModeradora.cs" />
+    <Compile Include="ServicioPaciente.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bll\Bll.csproj">
-      <Project>{5150e6a3-7e48-407f-918a-5480d381fd49}</Project>
-      <Name>Bll</Name>
+    <ProjectReference Include="..\Dal\Dal.csproj">
+      <Project>{e5745195-d3ac-4c13-8e54-46c41f529f25}</Project>
+      <Name>Dal</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entity\Entity.csproj">
       <Project>{3d9a00e0-a1f6-4395-b8b8-dfcbbc2d4c3e}</Project>
