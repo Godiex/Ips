@@ -88,6 +88,7 @@ namespace Dal
         }
         public void Eliminar(string numeroDeLiquidacion)
         {
+
             liquidacionesCuotaModeradora = Consultar();
             flujoDelFichero = new FileStream(Ruta,FileMode.Create);
             flujoDelFichero.Close();
