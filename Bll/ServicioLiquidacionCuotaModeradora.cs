@@ -15,8 +15,12 @@ namespace Bll
         {
             try
             {
-               repositorioLiquidacionCoutaModuladora.Guardar(liquidacionCuotaModeradora);
-               return $"Datos de la liquidacion de la cuota modoladora Guardados con exito";  
+                if (liquidacionCuotaModeradora != null)
+                {
+                    repositorioLiquidacionCoutaModuladora.Guardar(liquidacionCuotaModeradora);
+                    return $"Datos de la liquidacion de la cuota modoladora Guardados con exito";
+                }
+                return $"error";
             }
             catch (Exception e)
             {

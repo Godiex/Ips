@@ -34,8 +34,11 @@ namespace Dal
                     LiquidacionCuotaModeradora Contributivo = MapearLiquidacionCuotaModeradoraContributiva(linea);
                     liquidacionesCuotaModeradora.Add(Contributivo);
                 }
-                LiquidacionCuotaModeradora Sudsidiado = MapearLiquidacionCuotaModeradoraSudsidiada(linea);
-                liquidacionesCuotaModeradora.Add(Sudsidiado);
+                else
+                {
+                    LiquidacionCuotaModeradora Sudsidiado = MapearLiquidacionCuotaModeradoraSudsidiada(linea);
+                    liquidacionesCuotaModeradora.Add(Sudsidiado);
+                }
             }
             lector.Close();
             flujoDelFichero.Close();
@@ -88,7 +91,6 @@ namespace Dal
         }
         public void Eliminar(string numeroDeLiquidacion)
         {
-
             liquidacionesCuotaModeradora = Consultar();
             flujoDelFichero = new FileStream(Ruta,FileMode.Create);
             flujoDelFichero.Close();
