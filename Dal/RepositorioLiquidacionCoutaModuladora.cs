@@ -24,7 +24,7 @@ namespace Dal
         public List<LiquidacionCuotaModeradora> Consultar()
         {
             liquidacionesCuotaModeradora.Clear();
-            flujoDelFichero = new FileStream(Ruta,FileMode.Open);
+            flujoDelFichero = new FileStream(Ruta,FileMode.OpenOrCreate);
             StreamReader lector = new StreamReader(flujoDelFichero);
             string linea = string.Empty;
             while ((linea = lector.ReadLine()) != null)
@@ -44,10 +44,10 @@ namespace Dal
         public Paciente MapearPaciente(string linea)
         {
             string[] datos = linea.Split(';');
-            string nombre = datos[0];
-            string apellido = datos[1];
-            string tipoDeRegimen = datos[2];
-            string cedula = datos[3];
+            string nombre = datos[2];
+            string apellido = datos[3];
+            string tipoDeRegimen = datos[1];
+            string cedula = datos[0];
             decimal salario = decimal.Parse(datos[4]);
             Paciente paciente = new Paciente(nombre, apellido, cedula, tipoDeRegimen, salario);
             return paciente;
@@ -93,7 +93,7 @@ namespace Dal
             flujoDelFichero.Close();
             foreach(LiquidacionCuotaModeradora item in liquidacionesCuotaModeradora)
             {
-                if (!item.NumeroDeLiquidacion.Equals(numeroDeLiquidacion))
+                if (item.NumeroDeLiquidacion != numeroDeLiquidacion)
                 {
                     Guardar(item);
                 }

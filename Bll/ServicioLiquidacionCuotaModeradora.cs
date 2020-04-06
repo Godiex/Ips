@@ -10,13 +10,13 @@ namespace Bll
 {
     public class ServicioLiquidacionCuotaModeradora
     {
-        RepositorioLiquidacionCoutaModuladora repositorioLiquidacionCoutaModuladora = new RepositorioLiquidacionCoutaModuladora();
+        private RepositorioLiquidacionCoutaModuladora repositorioLiquidacionCoutaModuladora = new RepositorioLiquidacionCoutaModuladora();
         public string Guardar(LiquidacionCuotaModeradora liquidacionCuotaModeradora)
         {
             try
             {
-                repositorioLiquidacionCoutaModuladora.Guardar( liquidacionCuotaModeradora);
-                return $"Datos de la liquidacion de la cuota modoladora Guardados con exito";
+               repositorioLiquidacionCoutaModuladora.Guardar(liquidacionCuotaModeradora);
+               return $"Datos de la liquidacion de la cuota modoladora Guardados con exito";  
             }
             catch (Exception e)
             {
@@ -60,6 +60,10 @@ namespace Bll
                 Console.WriteLine("error en al buscar paciente" + e.Message);
                 return null;
             }
+        }
+        public void ImprimirDatosLiquidacionCuotaModeradora(LiquidacionCuotaModeradora liquidacionCuotaModeradora)
+        { 
+            
         }
         public string Modificar(LiquidacionCuotaModeradora liquidacionCuotaModeradora)
         {

@@ -13,10 +13,7 @@ namespace Entity
         public Contributivo(string numeroDeLiquidacion, float valorServicio, Paciente paciente) : base(numeroDeLiquidacion, valorServicio, "Contributivo", paciente)
         {
         }
-        public Contributivo()
-        {
-                
-        }
+
         public override void AsignarTopeMaximo()
         {
             AsignarTarifa();

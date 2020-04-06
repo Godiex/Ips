@@ -42,6 +42,18 @@ namespace Entity
             }
             
         }
+        public void MostrarDatos()
+        {
+            Console.WriteLine("-----------------------------------------------------------------------------------------------------------");
+            Console.WriteLine("Imformacion Del Paciente");
+            Paciente.MostrarImformacion();
+            Console.WriteLine("");
+            Console.WriteLine("Imformacion De La Liquidacion");
+            Console.WriteLine("");
+            Console.WriteLine("NumeroDeLiquidacion : "+NumeroDeLiquidacion+"      Tipo : "+Tipo+"     Tarifa: "+Tarifa);
+            Console.WriteLine("");
+            Console.WriteLine("Tope Maximo : "+TopeMaximo +"      Valor Del Servicio : "+ ValorServicio +"      Sudvalor Cuota Moderadora : "+ SubValorCuotaModeradora+ "     ValorCuotaModeradora: "+ ValorCuotaModeradora);
+        }
         public override string ToString()
         {
             return $"{Paciente.ToString()};{NumeroDeLiquidacion};{ValorServicio};{Tipo};{Tarifa};{SubValorCuotaModeradora};{ValorCuotaModeradora};{TopeMaximo}";

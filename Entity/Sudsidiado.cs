@@ -22,6 +22,7 @@ namespace Entity
         }
         public override void AsignarTopeMaximo()
         {
+            AsignarTarifa();
             TopeMaximo = 200000;
         }
     }

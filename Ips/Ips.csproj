@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AplicacionDeConsola.cs" />
+    <Compile Include="MenuIpsMasSaludYVida.cs" />
+    <Compile Include="MenuLiquidacionCuotaModuladora.cs" />
     <Compile Include="MenuPaciente.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

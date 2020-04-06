@@ -10,7 +10,7 @@ namespace Ips
     {
         public string ValidarRespuesta(string texto)
         {
-            string opcion = Leer(texto).ToLower();
+            string opcion = LeerCadena(texto).ToLower();
             while ((opcion != "s") && (opcion != "n"))
             {
                 opcion = Leer("Error, Digite -> (s) o Digite ->  (n)");
@@ -77,6 +77,7 @@ namespace Ips
         }
         public void CrearPausa()
         {
+            Console.WriteLine("");
             Console.WriteLine("Digite Enter Para Continuar");
             Console.ReadKey();
         }

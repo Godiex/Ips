@@ -78,12 +78,7 @@ namespace Bll
                 return null;
             }
         }
-        public void MostrarImformacionDelPaciente (Paciente paciente)
-        {
-            Console.WriteLine("Nombre : " + paciente.Nombre);
-            Console.WriteLine("Apellido : " + paciente.Apellido);
-            Console.WriteLine("Tipo De Regimen : " + paciente.TipoDeRegimen);
-        }
+     
         public void MostrarRegistro()
         {
             Console.WriteLine("{0,10}{1,17}{2,15}{3,15}{4,10}","Cedula","Tipo De Regimen","Nombre","Apellido","Salario");

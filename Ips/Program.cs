@@ -11,7 +11,7 @@ namespace Ips
     {
         public static void Main(string[] args)
         {
-            new MenuPaciente();
+            new MenuIpsMasSaludYVida();
         }
     }
 }

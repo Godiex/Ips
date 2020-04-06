@@ -71,9 +71,9 @@ namespace Dal
             flujoDelFichero.Close();
             foreach (Paciente item in pacientes)
             {
-                if (!paciente.Cedula.Equals(item))
+                if (paciente.Cedula !=  item.Cedula)
                 {
-                    Guardar(paciente);
+                    Guardar(item);
                 }
                 else 
                 {
