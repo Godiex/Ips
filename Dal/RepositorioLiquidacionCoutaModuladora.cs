@@ -29,16 +29,8 @@ namespace Dal
             string linea = string.Empty;
             while ((linea = lector.ReadLine()) != null)
             {
-                if (EsContributivo(linea))
-                {
-                    LiquidacionCuotaModeradora Contributivo = MapearLiquidacionCuotaModeradoraContributiva(linea);
-                    liquidacionesCuotaModeradora.Add(Contributivo);
-                }
-                else
-                {
-                    LiquidacionCuotaModeradora Sudsidiado = MapearLiquidacionCuotaModeradoraSudsidiada(linea);
-                    liquidacionesCuotaModeradora.Add(Sudsidiado);
-                }
+                LiquidacionCuotaModeradora liquidacionCuotaModeradora = MapearLiquidacionCuotaModeradora(linea);
+                liquidacionesCuotaModeradora.Add(liquidacionCuotaModeradora);
             }
             lector.Close();
             flujoDelFichero.Close();
@@ -55,20 +47,7 @@ namespace Dal
             Paciente paciente = new Paciente(nombre, apellido, cedula, tipoDeRegimen, salario);
             return paciente;
         }
-        public LiquidacionCuotaModeradora MapearLiquidacionCuotaModeradoraContributiva(string linea)
-        {
-            string[] datos = linea.Split(';');
-            string numeroDeLiquidacion = datos[5];
-            float valorServicio = float.Parse(datos[6]);
-            Paciente paciente = MapearPaciente(linea);
-            LiquidacionCuotaModeradora contributivo = new Contributivo(numeroDeLiquidacion,valorServicio,paciente);
-            contributivo.Tipo = datos[7];
-            contributivo.Tarifa= float.Parse(datos[8]);
-            contributivo.SubValorCuotaModeradora = float.Parse(datos[9]);
-            contributivo.ValorCuotaModeradora = float.Parse(datos[10]);
-            contributivo.TopeMaximo = float.Parse(datos[11]);
-            return contributivo;
-        }
+
         public bool EsContributivo(string linea) 
         {
             string[] datos = linea.Split(';');
@@ -76,18 +55,29 @@ namespace Dal
             else return false;
  
         }
-        public LiquidacionCuotaModeradora MapearLiquidacionCuotaModeradoraSudsidiada(string linea)
+        public LiquidacionCuotaModeradora MapearLiquidacionCuotaModeradora(string linea)
         {
             string[] datos = linea.Split(';');
             string numeroDeLiquidacion = datos[5];
             float valorServicio = float.Parse(datos[6]);
             Paciente paciente = MapearPaciente(linea);
-            LiquidacionCuotaModeradora sudsidiado = new Sudsidiado(numeroDeLiquidacion, valorServicio, paciente);
-            sudsidiado.Tipo = datos[7];
-            sudsidiado.Tarifa = float.Parse(datos[8]);
-            sudsidiado.ValorCuotaModeradora = float.Parse(datos[9]);
-            sudsidiado.TopeMaximo = float.Parse(datos[10]);
-            return sudsidiado;
+            LiquidacionCuotaModeradora liquidacionCuotaModeradora;
+            if (EsContributivo(linea))
+            {
+                liquidacionCuotaModeradora = new Contributivo(numeroDeLiquidacion, valorServicio, paciente);
+                
+            }
+            else
+            {
+                liquidacionCuotaModeradora = new Sudsidiado(numeroDeLiquidacion, valorServicio, paciente);
+            }
+            liquidacionCuotaModeradora.Tipo = datos[7];
+            liquidacionCuotaModeradora.Tarifa = float.Parse(datos[8]);
+            liquidacionCuotaModeradora.SubValorCuotaModeradora = float.Parse(datos[9]);
+            liquidacionCuotaModeradora.ValorCuotaModeradora = float.Parse(datos[10]);
+            liquidacionCuotaModeradora.TopeMaximo = float.Parse(datos[11]);
+            return liquidacionCuotaModeradora;
+
         }
         public void Eliminar(string numeroDeLiquidacion)
         {

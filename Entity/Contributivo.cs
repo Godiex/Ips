@@ -24,6 +24,10 @@ namespace Entity
                 case (float)0.25: TopeMaximo = 1500000; break;
             }
         }
+        public override void AsignarTarifa()
+        {
+            Tarifa = ObtenerValorDeTarifa();
+        }
         public float ObtenerValorDeTarifa()
         {
             if (EsMenorADosSalariosMinimo()) return (float)0.15;
@@ -47,10 +51,7 @@ namespace Entity
             }
             return false;
         }
-        public override void AsignarTarifa()
-        {
-            Tarifa = ObtenerValorDeTarifa();
-        }
+       
     }
 }
 

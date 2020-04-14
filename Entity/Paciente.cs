@@ -19,12 +19,6 @@ namespace Entity
         {
             return $"{Cedula};{TipoDeRegimen};{Nombre};{Apellido};{Salario}";
         }
-        public void MostrarImformacion()
-        {
-            Console.WriteLine("Nombre : " + Nombre);
-            Console.WriteLine("Apellido : " + Apellido);
-            Console.WriteLine("Salario :" + Salario);
-            Console.WriteLine("Tipo De Regimen : " +TipoDeRegimen);
-        }
+       
     }
 }

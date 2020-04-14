@@ -40,9 +40,7 @@ namespace Ips
                     case 2:MostrarRegistro()  ; break;
                     case 3:EliminarPaciente(); break;
                     case 4:ModificarPaciente(); break;
-
                 }
-
             } while (opcion != 0);
         }
         public void RegistrarPaciente()
@@ -71,8 +69,7 @@ namespace Ips
         public void MostrarRegistro()
         {
             CrearTitulo("Consulta Listado De Pacientes");
-
-            servicioPaciente.MostrarRegistro();
+            ImprimirRegistroPaciente();
             CrearPausa();
         }
         public string AsignarRegimen()
@@ -98,18 +95,9 @@ namespace Ips
             {
                 CrearTitulo("Formulario- Eliminar Paciente");
                 string cedula = LeerNumerico("Digite La Cedula A Eliminar :");
-                Paciente paciente = servicioPaciente.Buscar(cedula);
-                if (paciente != null)
-                {
-                    Console.WriteLine(servicioPaciente.Eliminar(cedula));
-                }
-                else
-                {
-                    Console.WriteLine("Error el paciente no se encuentra registrado");
-                }
+                Console.WriteLine(servicioPaciente.Eliminar(cedula));
                 opcion = ValidarRespuesta("Desea seguir eliminando s/n");
             }
-
         }
         public void ModificarPaciente()
         {
@@ -124,26 +112,42 @@ namespace Ips
         public void RealizarModificacion()
         {
             string cedula = LeerNumerico("Digite La Cedula A Del Paciente Modificar :");
-            Paciente pacienteAuxliar = servicioPaciente.Buscar(cedula);
-            if (pacienteAuxliar != null)
+            RespuestaBusquedaPaciente respuetaBusqueda = servicioPaciente.Buscar(cedula);
+            if (respuetaBusqueda.Paciente != null)
             {
-                Paciente paciente = ObtenerPacienteModificado(pacienteAuxliar.Cedula, pacienteAuxliar.TipoDeRegimen);
-                servicioPaciente.Modificar(paciente);
+                Paciente paciente = ObtenerPacienteModificado(respuetaBusqueda.Paciente);
+                Console.WriteLine(servicioPaciente.Modificar(paciente));
+            }
+        }
+        public Paciente ObtenerPacienteModificado( Paciente paciente)
+        {
+            paciente.Nombre = LeerCadena("Nombre : ");
+            paciente.Apellido = LeerCadena("Apellido : ");
+            paciente.Salario = decimal.Parse(LeerNumerico("Salario Paciente"));
+            CrearPausa();
+            return paciente;
+        }
+        public void ImprimirRegistroPaciente()
+        {
+            RespuestaConsultaPaciente respuestaConsulta = servicioPaciente.Consultar();
+            Console.WriteLine("{0,10}{1,17}{2,15}{3,15}{4,10}", "Cedula", "Tipo De Regimen", "Nombre", "Apellido", "Salario");
+            Console.WriteLine();
+            if (!respuestaConsulta.Error)
+            {
+                foreach (Paciente paciente in respuestaConsulta.pacientes)
+                {
+                    ImprimirDatos(paciente);
+                }
+                Console.WriteLine(respuestaConsulta.Mensaje);
             }
             else
             {
-                Console.WriteLine("Error el paciente no se encuentra registrado");
+                Console.WriteLine(respuestaConsulta.Mensaje);
             }
-
         }
-        public Paciente ObtenerPacienteModificado(string cedula,string tipoDeRegimen)
+        public void ImprimirDatos(Paciente paciente)
         {
-            string nombre = LeerCadena("Nombre : ");
-            string apellido = LeerCadena("Apellido : ");
-            decimal salario = decimal.Parse(LeerNumerico("Salario Paciente"));
-            Paciente paciente = new Paciente(nombre, apellido, cedula, tipoDeRegimen, salario);
-            CrearPausa();
-            return paciente;
+            Console.WriteLine("{0,10}{1,17}{2,15}{3,15}{4,10}", paciente.Cedula, paciente.TipoDeRegimen, paciente.Nombre, paciente.Apellido, paciente.Salario);
         }
     }
 }
