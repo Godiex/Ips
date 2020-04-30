@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Entity;
 using Bll;
+using System.Windows.Forms;
 namespace Ips
 {
     class Program
     {
         public static void Main(string[] args)
         {
-            new MenuIpsMasSaludYVida();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MenuPrincipalGui());
         }
     }
 }
