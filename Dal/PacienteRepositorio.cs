@@ -10,7 +10,7 @@ namespace Dal
 {
     public class PacienteRepositorio
     {
-        private List<Paciente> pacientes;
+        private IList<Paciente> pacientes;
         private FileStream flujoDelFichero;
         public string Ruta = @"Pacientes.txt";
         public PacienteRepositorio()
@@ -25,7 +25,7 @@ namespace Dal
             escritor.Close();
             flujoDelFichero.Close();
         }
-        public List<Paciente> Consultar()
+        public IList<Paciente> Consultar()
         {
             pacientes.Clear();
             flujoDelFichero = new FileStream(Ruta,FileMode.OpenOrCreate);
@@ -84,14 +84,7 @@ namespace Dal
         public Paciente Buscar(string cedula)
         {
             pacientes = Consultar();
-            foreach (Paciente paciente in pacientes)
-            {
-                if (paciente.Cedula.Equals(cedula))
-                {
-                    return paciente;
-                }
-            }
-            return null;
+            return pacientes.Where(paciente => paciente.Cedula.Equals(cedula)).First();
         }
     }
 }

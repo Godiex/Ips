@@ -63,38 +63,40 @@ namespace Ips
             LbHora.Text = DateTime.Now.ToShortTimeString();
             LbFecha.Text = DateTime.Now.ToShortDateString();
         }
-        private void AbrirFormHijo(object FormHijo)
+        private Form FormActual = null;
+        private void AbrirFormHijoEnPanel(Form formHijo)
         {
-            if (this.PanelContenedor.Controls.Count > 0)
-            {
-                this.PanelContenedor.Controls.RemoveAt(0);
-            }
-            Form Fh = FormHijo as Form;
-            Fh.TopLevel = false;
-            Fh.Dock = DockStyle.Fill;
-            this.PanelContenedor.Controls.Add(Fh);
-            this.PanelContenedor.Tag = Fh;
-            Fh.Show();
+            if (FormActual != null)
+                FormActual.Close();
+            FormActual = formHijo;
+            formHijo.TopLevel = false;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            formHijo.Dock = DockStyle.Fill;
+            PanelContenedor.Controls.Add(formHijo);
+            PanelContenedor.Tag = formHijo;
+            formHijo.BringToFront();
+            formHijo.Show();
         }
+        
 
         private void BtnRegistrarPaciente_Click(object sender, EventArgs e)
         {
-
+            AbrirFormHijoEnPanel(new RegistrarPacienteGui());
         }
 
         private void BtnRegistrarLiquidacionCoutaModeradora_Click(object sender, EventArgs e)
         {
-
+            AbrirFormHijoEnPanel(new RegistrarLiquidacionGui());
         }
 
         private void BtnOperacionesCuotasModeradoras_Click(object sender, EventArgs e)
         {
-
+            AbrirFormHijoEnPanel(new OpcionesLiquidacionesGui());
         }
 
         private void BtnConsulta_Click(object sender, EventArgs e)
         {
-
+            AbrirFormHijoEnPanel(new ConsultaGui());
         }
     }
 }

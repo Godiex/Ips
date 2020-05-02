@@ -8,14 +8,15 @@ namespace Bll
 {
     public class LiquidacionCuotaModeradoraFactoria: ILiquidacionCuotaModeradoraFactoria
     {
-        public LiquidacionCuotaModeradora CrearLiquidacionCuotaModeradora(string TipoDeRegimen, string numeroDeLiquidacion, float valorDelServicio, Paciente paciente)
+        public LiquidacionCuotaModeradora CrearLiquidacionCuotaModeradora( string numeroDeLiquidacion, float valorDelServicio, Paciente paciente,DateTime fecha)
         {
             LiquidacionCuotaModeradora liquidacionCuotaModeradora;
-            if (TipoDeRegimen.Equals("Contributivo"))
+            if (paciente.TipoDeRegimen.Equals("Contributivo"))
             {
                 liquidacionCuotaModeradora = new Contributivo(numeroDeLiquidacion, valorDelServicio, paciente);
                 liquidacionCuotaModeradora.AsignarTopeMaximo();
                 liquidacionCuotaModeradora.CalcularCuotaModeradora();
+                liquidacionCuotaModeradora.Fecha = fecha;
                 return liquidacionCuotaModeradora;
             }
             else
@@ -23,6 +24,7 @@ namespace Bll
                 liquidacionCuotaModeradora = new Sudsidiado(numeroDeLiquidacion, valorDelServicio, paciente);
                 liquidacionCuotaModeradora.AsignarTopeMaximo();
                 liquidacionCuotaModeradora.CalcularCuotaModeradora();
+                liquidacionCuotaModeradora.Fecha = fecha;
                 return liquidacionCuotaModeradora;
             }
         }

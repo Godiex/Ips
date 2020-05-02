@@ -69,6 +69,50 @@ namespace Bll
             respuestaConsulta.liquidacionesCuotasModeradora = null;
             return respuestaConsulta;
         }
+        public float TotalizarLiquidacionesPorRegimen(string regimen)
+        {
+            return repositorioLiquidacionCoutaModuladora.TotalizarLiquidacionesPorRegimen(regimen);
+        }
+        public float TotalizarLiquidaciones()
+        {
+            return repositorioLiquidacionCoutaModuladora.TotalizarLiquidaciones();
+        }
+        public IList<LiquidacionCuotaModeradora> ConsultarPorRegimen(string regimen)
+        {
+            return repositorioLiquidacionCoutaModuladora.ConsultarPorRegimen(regimen);
+        }
+        public IList<LiquidacionCuotaModeradora> ConsultarPorApellido(string apellido)
+        {
+            return repositorioLiquidacionCoutaModuladora.ConsultarPorApellido(apellido);
+        }
+        public IList<LiquidacionCuotaModeradora> ConsultarPorFecha(DateTime fecha)
+        {
+            return repositorioLiquidacionCoutaModuladora.ConsultarPorFecha(fecha);
+        }
+        public float TotalizarLiquidacionesPorFecha(DateTime fecha)
+        {
+            return repositorioLiquidacionCoutaModuladora.TotalizarLiquidacionesPorFecha(fecha);
+        }
+        public float TotalizarLiquidacionesPorRegimenYPorFecha(DateTime fecha, string regimen)
+        {
+            return repositorioLiquidacionCoutaModuladora.TotalizarLiquidacionesPorRegimenYPorFecha(fecha,regimen);
+        }
+        public int ObtenerCantidadLiquidacionesPorFecha(DateTime fecha)
+        {
+            return repositorioLiquidacionCoutaModuladora.ObtenerCantidadLiquidacionesPorFecha(fecha);
+        }
+        public int ObtenerCantidadPorRegimenYPorFecha(DateTime fecha, string regimen)
+        {
+            return repositorioLiquidacionCoutaModuladora.ObtenerCantidadLiquidacionesPorRegimenYPorFecha(fecha,regimen);
+        }
+        public int ObtenerCantidadLiquidaciones()
+        {
+            return repositorioLiquidacionCoutaModuladora.ObtenerCantidadLiquidaciones();
+        }
+        public int ObtenerCantidadLiquidacionesPorRegimen(string regimen)
+        {
+            return repositorioLiquidacionCoutaModuladora.ObtenerCantidadLiquidacionesPorRegimen(regimen);
+        }
         public string Eliminar(string numeroDeLiquidacion)
         {
             try
@@ -87,7 +131,7 @@ namespace Bll
             if (respuestaBusqueda.LiquidacionCuotaModeradora != null)
             {
                 repositorioLiquidacionCoutaModuladora.Eliminar(numeroDeLiquidacion);
-                return $"Paciente eliminado con exito";
+                return $"liquidacion eliminada con exito";
             }
             return respuestaBusqueda.Mensaje;
         }
@@ -109,7 +153,7 @@ namespace Bll
             if (respuestaBusqueda.LiquidacionCuotaModeradora != null)
             {
                 repositorioLiquidacionCoutaModuladora.Modificar(liquidacionCuotaModeradora);
-                return $"LiquidacionCuotaModeradora Modificado con exito";
+                return $"Liquidacion Cuota Moderadora Modificado con exito";
             }
             return respuestaBusqueda.Mensaje;
         }

@@ -8,7 +8,7 @@ namespace Bll
 {
     public interface ILiquidacionCuotaModeradoraFactoria
     {
-        LiquidacionCuotaModeradora CrearLiquidacionCuotaModeradora(string TipoDeRegimen,string numeroDeLiquidacion, float valorDelServicio, Paciente paciente);
+        LiquidacionCuotaModeradora CrearLiquidacionCuotaModeradora(string numeroDeLiquidacion, float valorDelServicio, Paciente paciente,DateTime fecha);
     }
 
 }

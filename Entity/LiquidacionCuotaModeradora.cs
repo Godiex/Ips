@@ -16,6 +16,7 @@ namespace Entity
         public float SubValorCuotaModeradora { get; set; }
         public Paciente Paciente { get; set; }
         public float TopeMaximo { get; set; }
+        public DateTime Fecha { get; set; }
         public LiquidacionCuotaModeradora(string numeroDeLiquidacion, float valorServicio,string tipo, Paciente paciente)
         {
             Tipo = tipo;
@@ -45,7 +46,7 @@ namespace Entity
         
         public override string ToString()
         {
-            return $"{Paciente.ToString()};{NumeroDeLiquidacion};{ValorServicio};{Tipo};{Tarifa};{SubValorCuotaModeradora};{ValorCuotaModeradora};{TopeMaximo}";
+            return $"{Paciente.ToString()};{NumeroDeLiquidacion};{ValorServicio};{Tipo};{Tarifa};{SubValorCuotaModeradora};{ValorCuotaModeradora};{TopeMaximo};{Fecha}";
         }
     }
 }

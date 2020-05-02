@@ -37,12 +37,12 @@
             this.BtnRegistrarLiquidacionCoutaModeradora = new System.Windows.Forms.Button();
             this.BtnRegistrarPaciente = new System.Windows.Forms.Button();
             this.PbLogo = new System.Windows.Forms.PictureBox();
-            this.PanelContenedor = new System.Windows.Forms.FlowLayoutPanel();
             this.PanelBarraSuperior = new System.Windows.Forms.Panel();
             this.PbMaximizar = new System.Windows.Forms.PictureBox();
             this.PbRestaurar = new System.Windows.Forms.PictureBox();
             this.PbMinimizar = new System.Windows.Forms.PictureBox();
             this.PbSalir = new System.Windows.Forms.PictureBox();
+            this.PanelContenedor = new System.Windows.Forms.Panel();
             this.PanelBarraLateral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.PanelBarraSuperior.SuspendLayout();
@@ -101,9 +101,9 @@
             this.BtnOperacionesCuotasModeradoras.Location = new System.Drawing.Point(0, 343);
             this.BtnOperacionesCuotasModeradoras.Name = "BtnOperacionesCuotasModeradoras";
             this.BtnOperacionesCuotasModeradoras.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BtnOperacionesCuotasModeradoras.Size = new System.Drawing.Size(443, 44);
+            this.BtnOperacionesCuotasModeradoras.Size = new System.Drawing.Size(391, 44);
             this.BtnOperacionesCuotasModeradoras.TabIndex = 4;
-            this.BtnOperacionesCuotasModeradoras.Text = "Opciones Coutas Moderadora ";
+            this.BtnOperacionesCuotasModeradoras.Text = "Opciones Liquidacion";
             this.BtnOperacionesCuotasModeradoras.UseVisualStyleBackColor = true;
             this.BtnOperacionesCuotasModeradoras.Click += new System.EventHandler(this.BtnOperacionesCuotasModeradoras_Click);
             // 
@@ -118,9 +118,9 @@
             this.BtnConsulta.Location = new System.Drawing.Point(3, 393);
             this.BtnConsulta.Name = "BtnConsulta";
             this.BtnConsulta.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BtnConsulta.Size = new System.Drawing.Size(424, 44);
+            this.BtnConsulta.Size = new System.Drawing.Size(404, 44);
             this.BtnConsulta.TabIndex = 3;
-            this.BtnConsulta.Text = "Consultas Cuota Moderadora";
+            this.BtnConsulta.Text = "Consultas Liquidaciones";
             this.BtnConsulta.UseVisualStyleBackColor = true;
             this.BtnConsulta.Click += new System.EventHandler(this.BtnConsulta_Click);
             // 
@@ -135,9 +135,9 @@
             this.BtnRegistrarLiquidacionCoutaModeradora.Location = new System.Drawing.Point(0, 293);
             this.BtnRegistrarLiquidacionCoutaModeradora.Name = "BtnRegistrarLiquidacionCoutaModeradora";
             this.BtnRegistrarLiquidacionCoutaModeradora.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BtnRegistrarLiquidacionCoutaModeradora.Size = new System.Drawing.Size(427, 44);
+            this.BtnRegistrarLiquidacionCoutaModeradora.Size = new System.Drawing.Size(391, 44);
             this.BtnRegistrarLiquidacionCoutaModeradora.TabIndex = 2;
-            this.BtnRegistrarLiquidacionCoutaModeradora.Text = "Registrar Couta Moderadora";
+            this.BtnRegistrarLiquidacionCoutaModeradora.Text = "Registrar Liquidacion";
             this.BtnRegistrarLiquidacionCoutaModeradora.UseVisualStyleBackColor = true;
             this.BtnRegistrarLiquidacionCoutaModeradora.Click += new System.EventHandler(this.BtnRegistrarLiquidacionCoutaModeradora_Click);
             // 
@@ -152,7 +152,7 @@
             this.BtnRegistrarPaciente.Location = new System.Drawing.Point(0, 243);
             this.BtnRegistrarPaciente.Name = "BtnRegistrarPaciente";
             this.BtnRegistrarPaciente.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BtnRegistrarPaciente.Size = new System.Drawing.Size(333, 44);
+            this.BtnRegistrarPaciente.Size = new System.Drawing.Size(368, 44);
             this.BtnRegistrarPaciente.TabIndex = 1;
             this.BtnRegistrarPaciente.Text = "Registrar Paciente";
             this.BtnRegistrarPaciente.UseVisualStyleBackColor = true;
@@ -167,15 +167,6 @@
             this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PbLogo.TabIndex = 0;
             this.PbLogo.TabStop = false;
-            // 
-            // PanelContenedor
-            // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelContenedor.Location = new System.Drawing.Point(0, 36);
-            this.PanelContenedor.Name = "PanelContenedor";
-            this.PanelContenedor.Size = new System.Drawing.Size(1300, 679);
-            this.PanelContenedor.TabIndex = 1;
             // 
             // PanelBarraSuperior
             // 
@@ -239,13 +230,21 @@
             this.PbSalir.TabStop = false;
             this.PbSalir.Click += new System.EventHandler(this.PbSalir_Click);
             // 
+            // PanelContenedor
+            // 
+            this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelContenedor.Location = new System.Drawing.Point(368, 36);
+            this.PanelContenedor.Name = "PanelContenedor";
+            this.PanelContenedor.Size = new System.Drawing.Size(932, 679);
+            this.PanelContenedor.TabIndex = 2;
+            // 
             // MenuPrincipalGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1300, 715);
-            this.Controls.Add(this.PanelBarraLateral);
             this.Controls.Add(this.PanelContenedor);
+            this.Controls.Add(this.PanelBarraLateral);
             this.Controls.Add(this.PanelBarraSuperior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuPrincipalGui";
@@ -266,7 +265,6 @@
         #endregion
 
         private System.Windows.Forms.Panel PanelBarraLateral;
-        private System.Windows.Forms.FlowLayoutPanel PanelContenedor;
         private System.Windows.Forms.Panel PanelBarraSuperior;
         private System.Windows.Forms.PictureBox PbLogo;
         private System.Windows.Forms.Button BtnRegistrarPaciente;
@@ -279,5 +277,6 @@
         private System.Windows.Forms.PictureBox PbSalir;
         private System.Windows.Forms.Label LbHora;
         private System.Windows.Forms.Label LbFecha;
+        private System.Windows.Forms.Panel PanelContenedor;
     }
 }

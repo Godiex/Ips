@@ -18,7 +18,7 @@ namespace Bll
     }
     public class RespuestaConsultaPaciente : Respuesta
     {
-        public List<Paciente> pacientes;
+        public IList<Paciente> pacientes;
     }
     public class RespuestaBusquedaLiquidacionCuotaModeradora : Respuesta
     {
@@ -26,6 +26,6 @@ namespace Bll
     }
     public class RespuestaConsultaLiquidacionCuotaModeradora : Respuesta
     {
-        public List<LiquidacionCuotaModeradora> liquidacionesCuotasModeradora;
+        public IList<LiquidacionCuotaModeradora> liquidacionesCuotasModeradora;
     }
 }

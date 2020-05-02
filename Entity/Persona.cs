@@ -11,7 +11,10 @@ namespace Entity
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Cedula { get; set; }
-
+        public Persona()
+        {
+            
+        }
         public Persona(string nombre, string apellido, string cedula)
         {
             Nombre = nombre;
