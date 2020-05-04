@@ -72,7 +72,6 @@ namespace Ips
             if (respuestaBusqueda.Paciente != null)
             {
                 DateTime Fecha = DtpMesAño.Value;
-                Fecha.ToShortDateString();
                 Paciente paciente = respuestaBusqueda.Paciente;
                 string numeroDeLiquidacion = TbNumeroLiquidacion.Text;
                 float valorServicio = float.Parse(TbValorServicio.Text);
